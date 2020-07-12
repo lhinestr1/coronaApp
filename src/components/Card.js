@@ -10,12 +10,12 @@ const Card = ( {title, number, fatality, recovery_rate} ) => {
     let footer = "";
     let style = "card-footer text-center"
 
-    if(title=="Muertos"){
+    if(title==="Muertos"){
         footer = <NumberFormat value={fatality} displayType={'text'} prefix="Fatalidad: " suffix="%" decimalScale={1}/>
         style += " bg-danger"
     }
 
-    if(title=="Recuperados"){
+    if(title==="Recuperados"){
         footer = <NumberFormat value={recovery_rate} displayType={'text'}  prefix="Recuperación: " suffix="%" decimalScale={1}/>
         style += " bg-success" 
     }
@@ -29,7 +29,7 @@ const Card = ( {title, number, fatality, recovery_rate} ) => {
                 </p>
             </div>
             {
-                footer != "" &&
+                footer !== "" &&
                 <div className={style}>
                     {footer}
                 </div>

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import List_card from './components/List_card'
 
 //actions redux
-import { addCountries, addProvinces } from './redux/actions/countryActions'
+import { addCountries } from './redux/actions/countryActions'
 
 function App( {add_countries,  countries }  ) {
 
@@ -45,7 +45,7 @@ function App( {add_countries,  countries }  ) {
 
   const search_data = (country="") => {
 
-    const detail = country=="" ? "" : "countries/"+country
+    const detail = country==="" ? "" : "countries/"+country
 
     fetch(`https://covid19.mathdro.id/api/${detail}`)
       .then(
@@ -65,9 +65,9 @@ function App( {add_countries,  countries }  ) {
   }
 
 
-  const search_data_province = (country="") => {
-    alert("Buscar dato province")    
-  }
+  // const search_data_province = (country="") => {
+  //   alert("Buscar dato province")    
+  // }
 
 
   function search_provinces(country){
@@ -106,7 +106,7 @@ function App( {add_countries,  countries }  ) {
         }
       )
 
-  },[])
+  },[add_countries])
   
 
   return (
@@ -152,7 +152,6 @@ function App( {add_countries,  countries }  ) {
           deaths={state.deaths}
           recovery_rate={state.recovery_rate}
           fatality={state.fatality}
-          recovery_rate={state.recovery_rate}
         />
       </div>
   );
